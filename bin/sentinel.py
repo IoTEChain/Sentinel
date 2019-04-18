@@ -126,12 +126,12 @@ def main():
 
     # check dashd connectivity
     if not is_dashd_port_open(dashd):
-        print("Cannot connect to dashd. Please ensure dashd is running and the JSONRPC port is open to Sentinel.")
+        print("Cannot connect to ioted. Please ensure ioted is running and the JSONRPC port is open to Sentinel.")
         return
 
-    # check dashd sync
+    # check ioted sync
     if not dashd.is_synced():
-        print("dashd not synced with network! Awaiting full sync before running Sentinel.")
+        print("ioted not synced with network! Awaiting full sync before running Sentinel.")
         return
 
     # ensure valid masternode

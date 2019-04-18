@@ -16,17 +16,17 @@ min_dashd_proto_version_with_sentinel_ping = 70207
 
 def get_dash_conf():
     if sys.platform == 'win32':
-        dash_conf = os.path.join(os.getenv('APPDATA'), "DashCore/dash.conf")
+        iote_conf = os.path.join(os.getenv('APPDATA'), "IoTEData/iote.conf")
     else:
         home = os.environ.get('HOME')
 
-        dash_conf = os.path.join(home, ".dashcore/dash.conf")
+        iote_conf = os.path.join(home, ".iotedata/iote.conf")
         if sys.platform == 'darwin':
-            dash_conf = os.path.join(home, "Library/Application Support/DashCore/dash.conf")
+            dash_conf = os.path.join(home, "Library/Application Support/IoTEData/iote.conf")
 
-    dash_conf = sentinel_cfg.get('dash_conf', dash_conf)
+    iote_conf = sentinel_cfg.get('dash_conf', iote_conf)
 
-    return dash_conf
+    return iote_conf
 
 
 def get_network():
