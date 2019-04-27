@@ -11,7 +11,7 @@ class DashConfig():
 
     @classmethod
     def slurp_config_file(self, filename):
-        # read dash.conf config but skip commented lines
+        # read iote.conf config but skip commented lines
         f = io.open(filename)
         lines = []
         for line in f:
@@ -20,14 +20,14 @@ class DashConfig():
             lines.append(line)
         f.close()
 
-        # data is dash.conf without commented lines
+        # data is iote.conf without commented lines
         data = ''.join(lines)
 
         return data
 
     @classmethod
     def get_rpc_creds(self, data, network='mainnet'):
-        # get rpc info from dash.conf
+        # get rpc info from iote.conf
         match = re.findall(r'rpc(user|password|port)=(.*?)$', data, re.MULTILINE)
 
         # python >= 2.7
@@ -36,11 +36,11 @@ class DashConfig():
         # standard Dash defaults...
         default_port = 2111 if (network == 'mainnet') else 12111
 
-        # use default port for network if not specified in dash.conf
+        # use default port for network if not specified in iote.conf
         if not ('port' in creds):
             creds[u'port'] = default_port
 
-        # convert to an int if taken from dash.conf
+        # convert to an int if taken from iote.conf
         creds[u'port'] = int(creds[u'port'])
 
         # return a dictionary with RPC credential key, value pairs

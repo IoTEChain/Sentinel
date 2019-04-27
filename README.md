@@ -27,7 +27,7 @@ Update system packages and ensure virtualenv is installed:
     $ sudo apt-get update
     $ sudo apt-get -y install python-virtualenv
 
-Make sure the local IoTECore daemon running is at least version 12.1 (120100)
+Make sure the local IoTECore daemon running is at least version 1.31
 
     $ iote-cli getinfo | grep version
 
